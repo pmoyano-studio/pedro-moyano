@@ -1,23 +1,35 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 900);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-neutral-200">
+    <header
+      className={`absolute top-0 left-0 w-full z-50 transition-opacity duration-[1400ms] ${
+        visible ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <nav className="max-w-7xl mx-auto h-20 px-8 flex items-center justify-between">
 
         <Link
           href="/"
-          className="text-sm uppercase tracking-[0.35em] text-black"
+          className="text-base font-medium uppercase tracking-[0.35em] text-black"
         >
           PEDRO MOYANO
         </Link>
 
-        <div className="flex gap-10 text-sm uppercase tracking-[0.2em] text-neutral-700">
+        <div className="flex gap-10 text-sm uppercase tracking-[0.2em] text-black">
 
           <div className="relative group">
 

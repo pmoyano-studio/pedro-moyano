@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { artist } from "../../data/artist";
 
 export default function TheArtist() {
   return (
@@ -18,11 +17,12 @@ export default function TheArtist() {
         <div className="space-y-10">
 
           <h3 className="text-3xl font-light">
-            {artist.name}
+            Pedro Moyano
           </h3>
 
           <p className="text-neutral-700 leading-8">
-            {artist.biography}
+            Contemporary figurative painter whose work explores intimacy,
+            light and contemplation through everyday subjects.
           </p>
 
           <Link

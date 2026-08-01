@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { paintings } from "../../data/paintings";
+import { paintings } from "@/app/data/paintings";
 
 export default function Gallery() {
   return (
     <section
       id="works"
-      className="max-w-7xl mx-auto px-8 py-32"
+      className="max-w-7xl mx-auto px-8"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
 
@@ -32,11 +32,11 @@ export default function Gallery() {
                 alt={painting.title}
                 fill
                 className="
-  object-cover
-  transition-transform
-  duration-500
-  group-hover:scale-[1.02]
-"
+                  object-cover
+                  transition-transform
+                  duration-500
+                  group-hover:scale-[1.02]
+                "
               />
 
             </div>

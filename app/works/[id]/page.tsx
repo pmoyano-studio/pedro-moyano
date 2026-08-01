@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { paintings } from "../../../data/paintings";
+import { paintings } from "@/app/data/paintings";
 
 export default async function WorkPage({
   params,
@@ -13,7 +13,7 @@ export default async function WorkPage({
 
   if (!painting) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center bg-white">
         Artwork not found
       </main>
     );
@@ -32,55 +32,51 @@ export default async function WorkPage({
       : null;
 
   return (
-    <main className="h-screen overflow-hidden bg-white">
+    <main className="h-screen bg-white pt-24">
 
-      <div className="h-full px-10 py-8 flex flex-col">
+      <div className="h-[calc(100vh-6rem)] px-10 pb-8 flex flex-col">
 
-        {/* VISOR */}
+        <div className="flex-1 flex items-center justify-center gap-2 min-h-0">
 
-        <div className="flex-1 flex items-center justify-center gap-10 min-h-0">
+          <div className="flex items-center justify-center">
 
-          {/* PINTURA */}
+            <a
+              href={painting.image}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative w-[900px] h-[80vh] block cursor-zoom-in"
+            >
+              <Image
+                src={painting.image}
+                alt={painting.title}
+                fill
+                priority
+                className="object-contain"
+              />
+            </a>
 
-          <div className="relative flex-1 h-full">
+            <aside
+              style={{
+                marginLeft: `${painting.labelOffset ?? -20}px`,
+              }}
+              className="w-[140px] text-sm text-neutral-500 leading-7"
+            >
 
-            <Image
-              src={painting.image}
-              alt={painting.title}
-              fill
-              priority
-              className="object-contain"
-            />
+              <h1 className="text-black font-light mb-3">
+                {painting.title}
+              </h1>
+
+              {painting.medium && <p>{painting.medium}</p>}
+              {painting.dimensions && <p>{painting.dimensions}</p>}
+              {painting.year && <p>{painting.year}</p>}
+
+            </aside>
 
           </div>
 
-          {/* CARTELA */}
-
-          <aside className="w-[140px] flex-shrink-0 text-sm text-neutral-500 leading-7">
-
-            <h1 className="text-black font-light mb-8">
-              {painting.title}
-            </h1>
-
-            {painting.medium && (
-              <p>{painting.medium}</p>
-            )}
-
-            {painting.dimensions && (
-              <p>{painting.dimensions}</p>
-            )}
-
-            {painting.year && (
-              <p>{painting.year}</p>
-            )}
-
-          </aside>
-
         </div>
 
-        {/* NAVEGACIÓN */}
-
-        <div className="flex-shrink-0 pt-5 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-neutral-500">
+        <div className="pt-6 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-neutral-500">
 
           {previousPainting ? (
             <Link

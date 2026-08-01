@@ -3,6 +3,12 @@ import Link from "next/link";
 
 import { drawings } from "@/app/data/drawings";
 
+export function generateStaticParams() {
+  return drawings.map((drawing) => ({
+    id: drawing.id.toString(),
+  }));
+}
+
 export default async function DrawingPage({
   params,
 }: {
@@ -14,7 +20,7 @@ export default async function DrawingPage({
 
   if (!drawing) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center bg-white">
         Artwork not found
       </main>
     );
@@ -33,55 +39,46 @@ export default async function DrawingPage({
       : null;
 
   return (
-    <main className="h-screen overflow-hidden bg-white">
+    <main className="h-screen bg-white pt-24">
 
-      <div className="h-full px-10 py-8 flex flex-col">
+      <div className="h-[calc(100vh-6rem)] px-10 pb-8 flex flex-col">
 
-        {/* VISOR */}
+        <div className="flex-1 flex items-center justify-center gap-2 min-h-0">
 
-        <div className="flex-1 flex items-center justify-center gap-10 min-h-0">
+          <div className="flex items-center justify-center">
 
-          {/* DIBUJO */}
+            <div className="relative w-[900px] h-[80vh]">
 
-          <div className="relative flex-1 h-full">
+              <Image
+                src={drawing.image}
+                alt={drawing.title}
+                fill
+                priority
+                className="object-contain"
+              />
 
-            <Image
-              src={drawing.image}
-              alt={drawing.title}
-              fill
-              priority
-              className="object-contain"
-            />
+            </div>
+
+            <aside
+              style={{ marginLeft: `${drawing.labelOffset ?? -20}px` }}
+              className="w-[140px] text-sm text-neutral-500 leading-7"
+            >
+
+              <h1 className="text-black font-light mb-3">
+                {drawing.title}
+              </h1>
+
+              {drawing.medium && <p>{drawing.medium}</p>}
+              {drawing.dimensions && <p>{drawing.dimensions}</p>}
+              {drawing.year && <p>{drawing.year}</p>}
+
+            </aside>
 
           </div>
 
-          {/* CARTELA */}
-
-          <aside className="w-[140px] flex-shrink-0 text-sm text-neutral-500 leading-7">
-
-            <h1 className="text-black font-light mb-8">
-              {drawing.title}
-            </h1>
-
-            {drawing.medium && (
-              <p>{drawing.medium}</p>
-            )}
-
-            {drawing.dimensions && (
-              <p>{drawing.dimensions}</p>
-            )}
-
-            {drawing.year && (
-              <p>{drawing.year}</p>
-            )}
-
-          </aside>
-
         </div>
 
-        {/* NAVEGACIÓN */}
-
-        <div className="flex-shrink-0 pt-5 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-neutral-500">
+        <div className="pt-6 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-neutral-500">
 
           {previousDrawing ? (
             <Link

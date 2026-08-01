@@ -1,5 +1,3 @@
-import { artist } from "../../data/artist";
-
 export default function Contact() {
   return (
     <section
@@ -21,18 +19,9 @@ export default function Contact() {
               Email
             </p>
 
-            {artist.email ? (
-              <a
-                href={`mailto:${artist.email}`}
-                className="text-lg hover:text-neutral-500 transition-colors"
-              >
-                {artist.email}
-              </a>
-            ) : (
-              <p className="text-lg text-neutral-400">
-                Available on request
-              </p>
-            )}
+            <p className="text-lg text-neutral-400">
+              Available on request
+            </p>
           </div>
 
           <div>
@@ -41,7 +30,7 @@ export default function Contact() {
             </p>
 
             <a
-              href={artist.instagram}
+              href="https://instagram.com/pedromoyanoart"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg hover:text-neutral-500 transition-colors"
@@ -56,7 +45,7 @@ export default function Contact() {
             </p>
 
             <p className="text-lg">
-              {artist.location}
+              Madrid, Spain
             </p>
           </div>
 
