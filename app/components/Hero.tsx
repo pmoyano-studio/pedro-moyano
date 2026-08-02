@@ -4,28 +4,44 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [imageVisible, setImageVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setImageVisible(true);
-    }, 300);
-
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setVisible(true), 300);
+    return () => clearTimeout(t);
   }, []);
 
   return (
-    <section className="h-screen bg-white flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden bg-white">
+
+      {/* Desktop */}
       <Image
-        src="/images/home.jpg"
+        src="/images/home-desktop.jpg"
         alt="Pedro Moyano"
-        width={1800}
-        height={1200}
+        fill
         priority
-        className={`w-[78vw] h-auto max-h-[78vh] object-contain transition-opacity duration-[2200ms] ${
-          imageVisible ? "opacity-100" : "opacity-0"
-        }`}
+        className={`
+          hidden md:block
+          object-cover
+          transition-opacity duration-[2200ms]
+          ${visible ? "opacity-100" : "opacity-0"}
+        `}
       />
+
+      {/* Mobile */}
+      <Image
+        src="/images/home-mobile.jpg"
+        alt="Pedro Moyano"
+        fill
+        priority
+        className={`
+          block md:hidden
+          object-cover
+          transition-opacity duration-[2200ms]
+          ${visible ? "opacity-100" : "opacity-0"}
+        `}
+      />
+
     </section>
   );
 }
