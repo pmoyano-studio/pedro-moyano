@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navbar from "@/app/components/Navbar";
+import NavbarMobile from "@/app/components/NavbarMobile";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,16 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white">
-        <Navbar />
+        {/* Tu Navbar original solo se verá en pantallas medianas y grandes */}
+        <div className="hidden md:block">
+          <Navbar />
+        </div>
+
+        {/* Tu nuevo NavbarMobile solo se verá en pantallas pequeñas */}
+        <div className="block md:hidden">
+          <NavbarMobile />
+        </div>
+
         {children}
       </body>
     </html>
