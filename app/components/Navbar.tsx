@@ -5,86 +5,110 @@ import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [visible, setVisible] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 900);
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 900);
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-opacity duration-[1400ms] ${
-          visible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <nav className="max-w-7xl mx-auto h-20 px-6 md:px-8 flex items-center justify-between bg-white">
+    <header
+      className={`absolute top-0 left-0 w-full z-50 transition-opacity duration-[1400ms] ${
+        visible ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto h-20 px-8 flex items-center justify-between">
 
-          <Link
-            href="/"
-            className="text-sm md:text-base font-medium uppercase tracking-[0.35em] text-black"
-          >
-            PEDRO MOYANO
-          </Link>
+        <Link
+          href="/"
+          className="text-base font-medium uppercase tracking-[0.35em] text-black"
+        >
+          PEDRO MOYANO
+        </Link>
 
-          {/* Escritorio */}
-          <div className="hidden md:flex gap-10 text-sm uppercase tracking-[0.2em]">
+        <div className="flex gap-10 text-sm uppercase tracking-[0.2em] text-black">
 
-            <Link href="/works">Works</Link>
+          <div className="relative group">
 
-            <Link href="/artist">Artist</Link>
+            <button className="uppercase tracking-[0.2em]">
+              Works
+            </button>
 
-            <Link href="/teaching/classes">Teaching</Link>
+            <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
 
-            <Link href="/contact">Contact</Link>
+              <div className="bg-white text-black shadow-lg py-3 min-w-[180px]">
+
+                <Link
+                  href="/works"
+                  className="block px-6 py-2 hover:bg-neutral-100"
+                >
+                  Paintings
+                </Link>
+
+                <Link
+                  href="/drawings"
+                  className="block px-6 py-2 hover:bg-neutral-100"
+                >
+                  Drawings
+                </Link>
+
+              </div>
+
+            </div>
 
           </div>
 
-          {/* Móvil */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-           className="text-6xl text-red-500"
-            aria-label="Menu"
-          >
-            {menuOpen ? "×" : "+"}
-          </button>
-
-        </nav>
-      </header>
-
-      {/* Menú móvil */}
-
-      <div
-        className={`fixed inset-0 bg-white z-40 transition-all duration-300
-        ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
-      >
-
-        <div className="pt-28 px-8 flex flex-col gap-8 uppercase tracking-[0.25em] text-xl">
-
-          <Link href="/works" onClick={() => setMenuOpen(false)}>
-            Works
-          </Link>
-
-          <Link href="/drawings" onClick={() => setMenuOpen(false)}>
-            Drawings
-          </Link>
-
-          <Link href="/artist" onClick={() => setMenuOpen(false)}>
+          <Link href="/artist">
             Artist
           </Link>
 
-          <Link href="/teaching/classes" onClick={() => setMenuOpen(false)}>
-            Teaching
-          </Link>
+          <div className="relative group">
 
-          <Link href="/contact" onClick={() => setMenuOpen(false)}>
+            <button className="uppercase tracking-[0.2em]">
+              Teaching
+            </button>
+
+            <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+
+              <div className="bg-white text-black shadow-lg py-3 min-w-[180px]">
+
+                <Link
+                  href="/teaching/classes"
+                  className="block px-6 py-2 hover:bg-neutral-100"
+                >
+                  Classes
+                </Link>
+
+                <Link
+                  href="/teaching/workshops"
+                  className="block px-6 py-2 hover:bg-neutral-100"
+                >
+                  Workshops
+                </Link>
+
+                <Link
+                  href="/teaching/retreats"
+                  className="block px-6 py-2 hover:bg-neutral-100"
+                >
+                  Retreats
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <Link href="/contact">
             Contact
           </Link>
 
         </div>
 
-      </div>
-    </>
+      </nav>
+    </header>
   );
 }
