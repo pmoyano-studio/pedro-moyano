@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import { drawings } from "@/app/data/drawings";
 
 export function generateStaticParams() {
@@ -39,46 +38,51 @@ export default async function DrawingPage({
       : null;
 
   return (
-    <main className="h-screen bg-white pt-24">
+    <main className="min-h-screen md:h-screen bg-white pt-20 md:pt-24 flex flex-col justify-between">
 
-      <div className="h-[calc(100vh-6rem)] px-10 pb-8 flex flex-col">
+      <div className="flex-1 px-4 md:px-10 pb-6 md:pb-8 flex flex-col justify-center">
 
-        <div className="flex-1 flex items-center justify-center gap-2 min-h-0">
+        {/* Estructura: vertical en móvil, horizontal en ordenador */}
+        <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0 min-h-0 py-4">
 
-          <div className="flex items-center justify-center">
+          {/* Imagen del dibujo */}
+          <a
+            href={drawing.image}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-full max-w-[90vw] md:w-[900px] h-[55vh] md:h-[80vh] block cursor-zoom-in"
+          >
+            <Image
+              src={drawing.image}
+              alt={drawing.title}
+              fill
+              priority
+              className="object-contain"
+            />
+          </a>
 
-            <div className="relative w-[900px] h-[80vh]">
-
-              <Image
-                src={drawing.image}
-                alt={drawing.title}
-                fill
-                priority
-                className="object-contain"
-              />
-
-            </div>
-
-            <aside
-              style={{ marginLeft: `${drawing.labelOffset ?? -20}px` }}
-              className="w-[140px] text-sm text-neutral-500 leading-7"
+          {/* Cartela / Información */}
+          <aside
+            className="w-full md:w-[140px] text-center md:text-left text-sm text-neutral-500 leading-6 md:leading-7 md:[margin-left:var(--label-offset)]"
+          >
+            <div 
+              style={{ '--label-offset': `${drawing.labelOffset ?? -20}px` } as React.CSSProperties} 
+              className="contents"
             >
-
-              <h1 className="text-black font-light mb-3">
+              <h1 className="text-black font-light mb-1 md:mb-3 text-base md:text-sm">
                 {drawing.title}
               </h1>
 
               {drawing.medium && <p>{drawing.medium}</p>}
               {drawing.dimensions && <p>{drawing.dimensions}</p>}
               {drawing.year && <p>{drawing.year}</p>}
-
-            </aside>
-
-          </div>
+            </div>
+          </aside>
 
         </div>
 
-        <div className="pt-6 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-neutral-500">
+        {/* Botones Anterior / Siguiente */}
+        <div className="pt-4 md:pt-6 flex items-center justify-between text-xs uppercase tracking-[0.3em] text-neutral-500 max-w-5xl mx-auto w-full">
 
           {previousDrawing ? (
             <Link
@@ -94,7 +98,7 @@ export default async function DrawingPage({
           {nextDrawing ? (
             <Link
               href={`/drawings/${nextDrawing.id}`}
-              className="hover:text-black transition-colors"
+              className="hover:text-black transition-colors px-4"
             >
               Next →
             </Link>
