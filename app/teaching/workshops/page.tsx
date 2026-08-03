@@ -14,7 +14,7 @@ export default function WorkshopsPage() {
       <section className="max-w-5xl mx-auto px-8 pt-28 pb-32">
 
         <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-20">
-          Workshops
+          workshops
         </h1>
 
         <div className="space-y-32">
