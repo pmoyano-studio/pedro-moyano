@@ -1,40 +1,12 @@
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-neutral-200 mt-24">
-      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
-
-        <div>
-          <p className="text-sm tracking-[0.3em] font-light">
-            PEDRO MOYANO
-          </p>
-
-          <p className="mt-2 text-sm text-neutral-500">
-            Contemporary Painting
-          </p>
-        </div>
-
-        <div className="flex gap-8 text-sm text-neutral-500">
-
-          <a
-            href="mailto:info@pedromoyano.com"
-            className="hover:text-black transition-colors"
-          >
-            Email
-          </a>
-
-          <a
-            href="https://instagram.com/pedromoyanoart"
-            target="_blank"
-            className="hover:text-black transition-colors"
-          >
-            Instagram
-          </a>
-
-        </div>
-
-        <p className="text-sm text-neutral-400">
-          © {new Date().getFullYear()}
-        </p>
+    <footer className="w-full py-12 px-8 bg-white border-t border-neutral-100 text-neutral-500 text-xs font-light tracking-wider">
+      <div className="max-w-5xl mx-auto flex justify-between items-center">
+        
+        {/* Solo el Copyright */}
+        <p>© {currentYear} Pedro Moyano. All rights reserved.</p>
 
       </div>
     </footer>

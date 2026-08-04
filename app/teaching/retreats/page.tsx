@@ -139,3 +139,4 @@ export default function RetreatsPage() {
     </main>
   );
 }
+
