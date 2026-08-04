@@ -25,7 +25,7 @@ export default function ContactPage() {
           <div className="space-y-6 text-sm font-light">
             <div>
               <span className="block text-xs uppercase text-neutral-400 mb-1">Email</span>
-              <a href="mailto:info@pedromoyano.com" className="hover:underline">tu@email.com</a>
+              <a href="mailto:info@pedromoyano.com" className="hover:underline">info@pedromoyano.com</a>
             </div>
             <div>
               <span className="block text-xs uppercase text-neutral-400 mb-1">Ubicación</span>
@@ -33,7 +33,7 @@ export default function ContactPage() {
             </div>
             <div>
               <span className="block text-xs uppercase text-neutral-400 mb-1">Instagram</span>
-              <a href="https://instagram.com/pedromoyanoart" target="_blank" rel="noreferrer" className="hover:underline">@pedromoyano</a>
+              <a href="https://instagram.com/pedromoyanoart" target="_blank" rel="noreferrer" className="hover:underline">@pedromoyanoart</a>
             </div>
           </div>
 
