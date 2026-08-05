@@ -6,11 +6,26 @@ export default function WorkshopsPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const workshopFlyers = [
-    { src: "/teaching/2-workshops/flyer.english.jpg", alt: "Fundamentals of Drawing (English)" },
-    { src: "/teaching/2-workshops/workshop-dibujo.jpg", alt: "Fundamentos del Dibujo" },
-    { src: "/teaching/2-workshops/workshop-frigiliana.jpg", alt: "Workshop Frigiliana" },
-    { src: "/teaching/2-workshops/workshop-01.jpg", alt: "Workshop 01" },
-    { src: "/teaching/2-workshops/workshop-02.jpg", alt: "Workshop 02" },
+    { 
+      src: "/teaching/2-workshops/flyer.english.jpg", 
+      alt: "Fundamentals of Drawing Workshop Flyer by Pedro Moyano" 
+    },
+    { 
+      src: "/teaching/2-workshops/workshop-dibujo.jpg", 
+      alt: "Fundamentos del Dibujo I Workshop Flyer" 
+    },
+    { 
+      src: "/teaching/2-workshops/workshop-frigiliana.jpg", 
+      alt: "Intensive Drawing Workshop Flyer in Frigiliana" 
+    },
+    { 
+      src: "/teaching/2-workshops/workshop-01.jpg", 
+      alt: "Drawing Techniques Workshop Flyer" 
+    },
+    { 
+      src: "/teaching/2-workshops/workshop-02.jpg", 
+      alt: "Practical Painting and Drawing Seminar Flyer" 
+    },
   ];
 
   return (
@@ -37,7 +52,6 @@ export default function WorkshopsPage() {
         </div>
       </section>
 
-      {/* Modal sobre fondo blanco */}
       {selectedImage && (
         <div 
           className="fixed inset-0 z-50 bg-white/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
@@ -46,7 +60,7 @@ export default function WorkshopsPage() {
           <div className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center">
             <img 
               src={selectedImage} 
-              alt="Workshop Flyer Expanded" 
+              alt="Expanded Workshop Flyer by Pedro Moyano" 
               className="max-w-full max-h-[85vh] object-contain shadow-md"
             />
             <button 

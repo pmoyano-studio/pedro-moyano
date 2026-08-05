@@ -14,9 +14,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// METADATOS OPTIMIZADOS PARA SEO
 export const metadata: Metadata = {
-  title: "Pedro Moyano",
-  description: "Painting",
+  title: {
+    default: "Pedro Moyano | Artista Plástico, Clases y Talleres de Dibujo",
+    template: "%s | Pedro Moyano",
+  },
+  description:
+    "Obra de Pedro Moyano, clases de dibujo, talleres intensivos y retiros artísticos.",
+  keywords: [
+    "Pedro Moyano",
+    "dibujo",
+    "pintura",
+    "clases de dibujo",
+    "workshops arte",
+    "retreats",
+  ],
+  openGraph: {
+    title: "Pedro Moyano | Artista Plástico",
+    description:
+      "Obra artística, clases de dibujo, talleres intensivos y retiros artísticos.",
+    type: "website",
+  },
 };
 
 export const viewport: Viewport = {

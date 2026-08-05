@@ -9,7 +9,7 @@ export default function ClassesPage() {
         <div className="max-w-md">
           <img 
             src="/teaching/1-classes/flyer-2026.jpg" 
-            alt="Classes Flyer 2026" 
+            alt="Pedro Moyano Drawing and Painting Classes Flyer 2026" 
             className="w-full h-auto object-cover border border-neutral-100 shadow-sm"
           />
         </div>
