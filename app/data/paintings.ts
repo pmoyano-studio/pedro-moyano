@@ -23,7 +23,7 @@ export const paintings = [
 },
 {
     id: 4,
-    title: "After Velázquez I",
+    title: "After Velazquez I",
     image: "/images/obras/04.jpg",
     year: "2023",
     medium: "Oil on panel",
