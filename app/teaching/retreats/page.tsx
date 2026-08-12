@@ -7,19 +7,19 @@ export default function RetreatsPage() {
 
   const retreatImages = [
     { 
-      src: "/teaching/3-retreats/retreat-01.jpg", 
+      src: "/teaching/3-retreats/photos/COLOR-1.jpg", 
       alt: "Art and drawing retreat in nature with Pedro Moyano" 
     },
     { 
-      src: "/teaching/3-retreats/retreat-02.jpg", 
+      src: "/teaching/3-retreats/photos/COLOR-2.jpg", 
       alt: "Students practicing during the intensive art retreat" 
     },
     { 
-      src: "/teaching/3-retreats/retreat-03.jpg", 
+      src: "/teaching/3-retreats/photos/COLOR-3.jpg", 
       alt: "Plein air painting session during the art retreat" 
     },
     { 
-      src: "/teaching/3-retreats/retreat-04.jpg", 
+      src: "/teaching/3-retreats/photos/COLOR-4.jpg", 
       alt: "Artistic fellowship and drawing instruction with Pedro Moyano" 
     },
   ];
@@ -27,10 +27,24 @@ export default function RetreatsPage() {
   return (
     <main className="bg-white text-black min-h-screen">
       <section className="max-w-5xl mx-auto px-8 pt-28 pb-32">
-        <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-20">
+        <h1 className="text-7xl md:text-8xl font-light tracking-tight mb-12">
           retreats
         </h1>
 
+        {/* Sección de Vídeo */}
+        <div className="mb-16 max-w-4xl">
+          <video 
+            controls 
+            playsInline
+            preload="metadata"
+            className="w-full aspect-video rounded-sm shadow-sm bg-neutral-100"
+          >
+            <source src="/teaching/3-retreats/video/retreat.mp4" type="video/mp4" />
+            Tu navegador no soporta la reproducción de vídeo.
+          </video>
+        </div>
+
+        {/* Galería de Fotos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl">
           {retreatImages.map((img, index) => (
             <div 
@@ -48,6 +62,7 @@ export default function RetreatsPage() {
         </div>
       </section>
 
+      {/* Visor Modal de Imagen */}
       {selectedImage && (
         <div 
           className="fixed inset-0 z-50 bg-white/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
