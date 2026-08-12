@@ -5,24 +5,11 @@ import { useState } from "react";
 export default function RetreatsPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const retreatImages = [
-    { 
-      src: "/teaching/3-retreats/photos/COLOR-1.jpg", 
-      alt: "Art and drawing retreat in nature with Pedro Moyano" 
-    },
-    { 
-      src: "/teaching/3-retreats/photos/COLOR-2.jpg", 
-      alt: "Students practicing during the intensive art retreat" 
-    },
-    { 
-      src: "/teaching/3-retreats/photos/COLOR-3.jpg", 
-      alt: "Plein air painting session during the art retreat" 
-    },
-    { 
-      src: "/teaching/3-retreats/photos/COLOR-4.jpg", 
-      alt: "Artistic fellowship and drawing instruction with Pedro Moyano" 
-    },
-  ];
+  // Genera automáticamente las rutas para COLOR-1.jpg hasta COLOR-25.jpg
+  const retreatImages = Array.from({ length: 25 }, (_, i) => ({
+    src: `/teaching/3-retreats/photos/COLOR-${i + 1}.jpg`,
+    alt: `Art retreat photo ${i + 1} by Pedro Moyano`,
+  }));
 
   return (
     <main className="bg-white text-black min-h-screen">
@@ -44,7 +31,7 @@ export default function RetreatsPage() {
           </video>
         </div>
 
-        {/* Galería de Fotos */}
+        {/* Galería de Fotos (25 imágenes) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl">
           {retreatImages.map((img, index) => (
             <div 
