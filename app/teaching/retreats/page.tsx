@@ -18,7 +18,7 @@ export default function RetreatsPage() {
           retreats
         </h1>
 
-        {/* Sección de Vídeo */}
+        {/* Sección de Vídeo y Texto Informativo */}
         <div className="mb-16 max-w-4xl">
           <video 
             controls 
@@ -29,6 +29,32 @@ export default function RetreatsPage() {
             <source src="/teaching/3-retreats/video/retreat.mp4" type="video/mp4" />
             Tu navegador no soporta la reproducción de vídeo.
           </video>
+
+          <div className="mt-4 text-xs tracking-wider uppercase text-neutral-500 space-y-1">
+            <p>
+              ONE-DAY-TRIAL-RETREAT at{" "}
+              <a 
+                href="https://cortijolagunachico.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-black underline underline-offset-4 transition-colors"
+              >
+                "Cortijo Laguna Chico"
+              </a>{" "}
+              Torre del Mar, Málaga. Spain. 07.07.2026
+            </p>
+            <p>
+              Video and Photography by{" "}
+              <a 
+                href="https://alexriofoto.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-black underline underline-offset-4 transition-colors"
+              >
+                Alexriofoto.com
+              </a>
+            </p>
+          </div>
         </div>
 
         {/* Galería de Fotos (25 imágenes) */}
