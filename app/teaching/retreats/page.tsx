@@ -30,7 +30,7 @@ export default function RetreatsPage() {
             Tu navegador no soporta la reproducción de vídeo.
           </video>
 
-          <div className="mt-4 text-xs tracking-wider uppercase text-neutral-500 space-y-1">
+          <div className="mt-6 text-sm font-light tracking-widest uppercase text-neutral-600 space-y-2">
             <p>
               ONE-DAY-TRIAL-RETREAT at{" "}
               <a 
